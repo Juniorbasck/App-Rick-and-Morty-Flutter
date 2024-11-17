@@ -2,6 +2,8 @@ import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:ricka_and_morty/home/page/home_page.dart';
 import 'package:ricka_and_morty/injection.dart';
+import 'package:ricka_and_morty/shared/theme/aplication_theme.dart';
+import 'package:ricka_and_morty/shared/theme/data/app_theme.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,10 +24,7 @@ class RickAndMortyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
+      theme: AplicationTheme.themes[AppTheme.dark]?.data,
       home: const HomePage(),
     );
   }
