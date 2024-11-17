@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ricka_and_morty/character/presentation/page/character_page.dart';
 import 'package:ricka_and_morty/home/presentation/cubit/navigation_cubit.dart';
+import 'package:ricka_and_morty/settings/presentation/page/settings_page.dart';
 
 class HomeWidget extends StatelessWidget {
   HomeWidget({super.key});
@@ -11,9 +12,7 @@ class HomeWidget extends StatelessWidget {
       icon: Icon(Icons.person),
       label: 'Characters',
     ),
-    const Center(
-      child: Text('Character settings'),
-    ): const BottomNavigationBarItem(
+    const SettingsPage(): const BottomNavigationBarItem(
       icon: Icon(Icons.settings),
       label: 'settings',
     ),
