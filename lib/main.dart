@@ -24,7 +24,7 @@ class RickAndMortyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: AplicationTheme.themes[AppTheme.dark]?.data,
+      theme: AplicationTheme.themes[AppTheme.piano]?.data,
       home: const HomePage(),
     );
   }
