@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ricka_and_morty/character/presentation/bloc/character_bloc.dart';
 import 'package:ricka_and_morty/character/presentation/widgets/character_card_widget.dart';
-import 'package:ricka_and_morty/main.dart';
 import 'package:ricka_and_morty/shared/widgets/default_loading_widget.dart';
 import 'package:ricka_and_morty/shared/widgets/default_try_again_widget.dart';
 

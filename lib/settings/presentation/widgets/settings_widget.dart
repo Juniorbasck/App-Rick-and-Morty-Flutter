@@ -33,7 +33,7 @@ class SettingsWidget extends StatelessWidget {
                     groupValue: AplicationTheme.byName(state),
                     onChanged: (value) =>
                         context.read<ThemeCubit>().changeTheme(
-                              value?.theme?.name ?? AppTheme.light.name,
+                              value?.theme.name ?? AppTheme.light.name,
                             ),
                   ),
                 ),

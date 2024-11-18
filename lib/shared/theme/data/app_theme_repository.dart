@@ -1,5 +1,4 @@
 import 'package:injectable/injectable.dart';
-import 'package:ricka_and_morty/shared/theme/data/app_theme.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 abstract class AppThemeRepository {

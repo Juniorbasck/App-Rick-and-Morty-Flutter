@@ -19,6 +19,12 @@ import 'package:ricka_and_morty/character/service/character_repository.dart'
     as _i609;
 import 'package:ricka_and_morty/character/service/character_service.dart'
     as _i616;
+import 'package:ricka_and_morty/datails/data/characer_details_repository.dart'
+    as _i848;
+import 'package:ricka_and_morty/datails/data/service/character_details_service.dart'
+    as _i604;
+import 'package:ricka_and_morty/datails/presentation/bloc/character_details_bloc.dart'
+    as _i157;
 import 'package:ricka_and_morty/network/network_module.dart' as _i53;
 import 'package:ricka_and_morty/preferences/preferences_module.dart' as _i564;
 import 'package:ricka_and_morty/shared/theme/data/app_theme_repository.dart'
@@ -58,8 +64,15 @@ Future<_i174.GetIt> init(
         gh<String>(instanceName: 'BaseUrl'),
         gh<_i361.Interceptor>(instanceName: 'PrettyLogger'),
       ));
+  gh.factory<_i604.CharacterDetailsService>(
+      () => _i604.CharacterDetailsServiceImpl(gh<_i361.Dio>()));
   gh.factory<_i254.ThemeCubit>(
       () => _i254.ThemeCubit(gh<_i294.AppThemeRepository>()));
+  gh.factory<_i848.CharacterDetailsRepository>(() =>
+      _i848.CharacterDetailsRepositoryImpl(
+          gh<_i604.CharacterDetailsService>()));
+  gh.factory<_i157.CharacterDetailsBloc>(
+      () => _i157.CharacterDetailsBloc(gh<_i848.CharacterDetailsRepository>()));
   gh.factory<_i616.CharacterService>(
       () => _i616.CharacterServiceImpl(gh<_i361.Dio>()));
   gh.factory<_i609.CharacterRepository>(
