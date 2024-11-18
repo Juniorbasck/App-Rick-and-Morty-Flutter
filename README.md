@@ -14,3 +14,35 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+
+## Construção
+
+* **Injeção de dependências**: **Get It** e **Injectable**
+
+* **Build Runner**;
+
+* **Mocktail**;
+
+* **Dio**;
+
+* **Pretty Dio Logger**;
+
+* **Equatable**;
+
+* **Bloc**;
+
+* **Bloc Concurrency**;
+
+* **URL Launcher**;
+
+* **Device Preview**;'
+
+* **Google Fonts**;
+
+* **Shared Preferences**;
+
+* **Go Router**;
+
+* **Bloc Test**.
+
