@@ -5,8 +5,10 @@ class AppThemeModel {
   AppThemeModel({
     required this.theme,
     required this.data,
+    required this.icon,
   });
 
   final AppTheme theme;
   final ThemeData data;
+  final Icon icon;
 }
