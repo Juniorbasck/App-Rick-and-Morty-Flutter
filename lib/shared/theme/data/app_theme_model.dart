@@ -11,4 +11,6 @@ class AppThemeModel {
   final AppTheme theme;
   final ThemeData data;
   final Icon icon;
+
+  get themeData => null;
 }
