@@ -29,14 +29,10 @@ class CharacterDetailsServiceImpl implements CharacterDetailsService {
       ]);
       var json = character.data;
 
-      print(json);
       json['locations'] = locations;
-      print(json);
 
       return CharacterDetailsResponse.fromjson(json);
-    } catch (e, stackTrace) {
-      print('Erro no Bloc: $e');
-      print('Stack trace: $stackTrace');
+    } catch (e) {
       throw Exception('Fail getting character details $id');
     }
   }

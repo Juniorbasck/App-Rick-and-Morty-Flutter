@@ -14,7 +14,12 @@ class DatailsPage extends StatelessWidget {
     return BlocProvider(
       create: (_) => GetIt.I<CharacterDetailsBloc>()
         ..add(CharacterDetailsRequestEvent(characterId)),
-      child: DetailsWidget(characterId: characterId),
+      child: Scaffold(
+        // backgroundColor: Theme.of(context).primaryColor,
+        body: DetailsWidget(
+          characterId: characterId,
+        ),
+      ),
     );
   }
 }
