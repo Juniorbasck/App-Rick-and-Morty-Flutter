@@ -15,7 +15,7 @@ class DatailsPage extends StatelessWidget {
       create: (_) => GetIt.I<CharacterDetailsBloc>()
         ..add(CharacterDetailsRequestEvent(characterId)),
       child: Scaffold(
-        // backgroundColor: Theme.of(context).primaryColor,
+        appBar: AppBar(),
         body: DetailsWidget(
           characterId: characterId,
         ),
