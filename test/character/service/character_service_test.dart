@@ -1,3 +1,65 @@
-import 'package:flutter_test/flutter_test.dart';
+import 'dart:io';
 
-void main() {}
+import 'package:dio/dio.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:mocktail/mocktail.dart';
+import 'package:ricka_and_morty/character/service/character_service.dart';
+
+void main() {
+  group('character service status ok', () {
+    late Dio client;
+    late CharacterService service;
+
+    setUp(() async {
+      client = DioMock();
+      service = CharacterServiceImpl(client);
+    });
+
+    test('GIVEN http client ' 'WHEN request api data at first page', () async {
+      final response = ResponseMock();
+      final dynamic dynamicResponse = {
+        'results': [],
+        'info': {
+          'count': 919,
+          'pages': 2,
+          'next': null,
+          'prev': null,
+        },
+      };
+      when(() => response.statusCode).thenReturn(200);
+      when(() => response.data).thenReturn(dynamicResponse);
+      when(() => client.get('character', queryParameters: {'page': '1'}))
+          .thenAnswer((_) async => response);
+      var result = await service.getCharacters();
+      expect(result.info.count, 919);
+    });
+  });
+
+  group('character service status invalid', () {
+    late Dio client;
+    late CharacterService service;
+
+    setUp(() async {
+      client = DioMock();
+      service = CharacterServiceImpl(client);
+    });
+
+    test(
+        'GIVEN http client '
+        'WHEN request character at first page '
+        'THEN get 404 and exception', () async {
+      final response = ResponseMock();
+      when(() => response.statusCode).thenReturn(404);
+      when(() => client.get('character', queryParameters: {'page': '1'}))
+          .thenAnswer((_) async => response);
+      expect(
+        () => service.getCharacters(),
+        throwsA(isA<HttpException>()),
+      );
+    });
+  });
+}
+
+class DioMock extends Mock implements Dio {}
+
+class ResponseMock extends Mock implements Response<dynamic> {}
